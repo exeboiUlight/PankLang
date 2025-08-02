@@ -1,0 +1,6 @@
+function main_function() {
+    var x = 10 + 5;
+    while x > 0 {
+        x = x - 1;
+    }
+}

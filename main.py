@@ -15,7 +15,7 @@ def main():
     except FileNotFoundError:
         print(f"Error: File '{input_file}' not found")
         return
-    
+
     # Компиляция
     compiler = Compiler()
     asm_code = compiler.compile(code)
@@ -23,9 +23,17 @@ def main():
     # Сохранение результата
     output_file = input_file.replace(".pank", ".asm")
     with open(output_file, "w") as f:
+
+
         f.write(asm_code)
+
+    try:
+        exe = input_file.replace(".pank", ".exe")
+        os.system(f"nasm {output_file} -o {exe}")
+    except Exception as e:
+        print(f"error nasm {e}")
     
-    print(f"Compilation successful. Output: {output_file}")
+    print(f"Compilation successful. Output: {output_file} and {exe}")
 
 if __name__ == "__main__":
     main()
