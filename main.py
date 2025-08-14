@@ -1,7 +1,8 @@
-# main.py
 from compiler import Compiler
 import sys
 import os
+
+os.system("cls" if os.name == "nt" else "clear")
 
 def main():
     if len(sys.argv) < 2:
@@ -16,24 +17,18 @@ def main():
         print(f"Error: File '{input_file}' not found")
         return
 
-    # Компиляция
     compiler = Compiler()
-    asm_code = compiler.compile(code)
+    c_code = compiler.compile(code)
     
-    # Сохранение результата
-    output_file = input_file.replace(".pank", ".asm")
-    with open(output_file, "w") as f:
-
-
-        f.write(asm_code)
-
-    try:
-        exe = input_file.replace(".pank", ".exe")
-        os.system(f"nasm {output_file} -o {exe}")
-    except Exception as e:
-        print(f"error nasm {e}")
+    c_file = input_file.replace(".pank", ".c")
+    with open(c_file, "w") as f:
+        f.write(c_code)
     
-    print(f"Compilation successful. Output: {output_file} and {exe}")
+    exe_file = input_file.replace(".pank", ".exe")
+    if compiler.compile_to_exe(c_code, exe_file):
+        print(f"Compilation successful. Output: {exe_file}")
+    else:
+        print("Compilation failed")
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,9 @@
-function main_function() {
-    var x = 10 + 5;
-    while x > 0 {
-        x = x - 1;
-    }
+use console
+
+def hoi _ret int {
+    console.print "Hello from DLL!\n"
+    var x = console.input "Enter number: "
+    console.print "You entered: "
+    console.print x
+    return 0
 }
