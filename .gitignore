@@ -1,5 +1,2 @@
-/buildlang.bat
-/golink
-/lang
-/nasm
-/__pycache__
+/.vscode
+/build

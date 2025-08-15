@@ -1,5 +1,0 @@
-LIBRARY console.dll
-
-EXPORTS
-input
-print
