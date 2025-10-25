@@ -1,0 +1,36 @@
+import "io.up";
+
+class Test : int {
+    constructor {
+        this.a : int = 0;
+        this.b : float = 1;
+        return this.a;
+    }
+
+    def c : int() {
+        return this.a + this.b;
+    }
+}
+
+def main() -> int {
+    print_str("Hello, World!\n");
+    print_str("Type 'quit' to exit\n");
+    
+    let running : bool = true;
+    
+    while running {
+        print_str("> ");
+        let a : str = input_str();
+        
+        if a == "quit" {
+            running = false;
+        } else {
+            print_str("You typed: ");
+            print_str(a);
+            print_str("\n");
+        }
+    }
+    
+    print_str("Goodbye!\n");
+    return 0;
+}
