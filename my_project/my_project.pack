@@ -1,0 +1,4 @@
+file: main.up
+output: program.exe
+author: Your Name
+version: 1.0.0

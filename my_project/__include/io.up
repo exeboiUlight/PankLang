@@ -1,0 +1,44 @@
+# Модуль ввода-вывода для Up языка
+# Внешние функции, реализованные в .o файлах
+
+extern print_str(str: ptr) -> void;
+extern print_int(num: int) -> void;
+extern print_float(num: float) -> void;
+extern print_bool(val: bool) -> void;
+
+extern input_str() -> str;
+extern input_int() -> int;
+extern input_float() -> float;
+
+extern strlen(str: ptr) -> int;
+extern strcmp(str1: ptr, str2: ptr) -> int;
+extern strcpy(dest: ptr, src: ptr) -> ptr;
+
+extern malloc(size: int) -> ptr;
+extern free(ptr: ptr) -> void;
+
+extern exit(code: int) -> void;
+
+# Вспомогательные функции
+def println_str(str: ptr) -> void {
+    print_str(str);
+    print_str("\n");
+}
+
+def println_int(num: int) -> void {
+    print_int(num);
+    print_str("\n");
+}
+
+def print_bool_str(val: bool) -> void {
+    if val {
+        print_str("true");
+    } else {
+        print_str("false");
+    }
+}
+
+def println_bool(val: bool) -> void {
+    print_bool_str(val);
+    print_str("\n");
+}
